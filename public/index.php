@@ -1,12 +1,9 @@
 <?php
 declare(strict_types=1);
 
+use App\DbConnection;
+
 require_once '../vendor/autoload.php';
+$config = include '../config/database.php';
 
-use Symfony\Component\Dotenv\Dotenv;
-
-
-$dotenv = new Dotenv();
-$dotenv->load('../.env');
-
-var_dump($_ENV['TEST']);
+$pdo = new DbConnection($config);
